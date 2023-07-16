@@ -32,8 +32,30 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        
+        respuesta = "Si"
+        numero_positivo = 0
+        numero_negativo = 1
+        # con esta linea se evita poner una bandera 
 
+        while respuesta == "Si":
+            numero = float (prompt ("Ingreso", "Ingrese un número"))
+            if numero == 0:
+                break
+            elif numero > 0:
+                numero_positivo += numero
+            else:
+                numero_negativo *= numero
+            respuesta = prompt ("Continuar", "¿Desea continuar?")
+
+        
+        
+        self.txt_suma_acumulada.delete(0,tkinter.END)
+        self.txt_suma_acumulada.insert(0,numero_positivo)
+        self.txt_producto.delete(0,tkinter.END)
+        self.txt_producto.insert(0,numero_negativo)
+
+            
     
 if __name__ == "__main__":
     app = App()

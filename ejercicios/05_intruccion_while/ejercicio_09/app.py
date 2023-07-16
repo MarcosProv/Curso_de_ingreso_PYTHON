@@ -32,7 +32,38 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        
+        numero_maximo = None
+        numero_minimo = None
+        numero = 0
+        bandera = 0
+        respuesta = True
+
+
+        while respuesta != None:
+            numero = float(prompt("ingreso", "ingrese un número"))
+            if bandera == 0:
+                bandera += 1
+                numero_maximo = numero
+                numero_minimo = numero
+            elif numero > numero_maximo:
+                numero_maximo += numero
+            else:
+                numero_minimo = numero
+            respuesta = prompt("Continuar", "¿Desea continuar?")
+
+            # print(numero_maximo, numero_minimo)
+
+        self.txt_minimo.delete(0,tkinter.END)
+        self.txt_minimo.insert(0,str(numero_minimo))
+        self.txt_maximo.delete(0,tkinter.END)
+        self.txt_maximo.insert(0,str(numero_maximo))
+
+        
+        
+
+
+        
 
     
 if __name__ == "__main__":

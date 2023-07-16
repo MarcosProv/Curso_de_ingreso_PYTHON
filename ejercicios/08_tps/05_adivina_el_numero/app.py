@@ -37,7 +37,22 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        numero_secreto = 44
+        numero_ingresado = int(prompt(title="Numero", prompt="Ingrese un numero mayor a cero y menor a cien"))
+
+        while numero_ingresado != 44:
+            if numero_ingresado > numero_secreto:
+                alert("Pista","El número secreto es menor al número ingresado")
+            else:
+                alert("Pista","El número secreto es mayor al número ingresado")
+
+            numero_ingresado = int(prompt(title="Numero", prompt="Ingrese un numero mayor a cero y menor a cien"))
+            
+        
+        alert ("Fin", "¡El número ingresado es correcto!")
+
+
+
 
 
 if __name__ == "__main__":
